@@ -1,0 +1,67 @@
+<section class="w-75 mx-auto">
+  <div class="title w-75 mx-auto shadow">
+  <h1 class="fa-border fw-bold">We're glad to see you back!</h1>
+  </div>
+<div class="row my-5" >
+  <div class="col-xs-12 col-md-6">
+    <div *ngIf="isLoading">
+     <p class="text-center align-items-center"><app-loading/></p>
+    </div>
+    <div class="row">
+      <div *ngIf="messageError">
+        <app-alert [message]="messageError" (close)="onHandleEror()"/>
+      </div>
+     <form  [formGroup]="form"  (ngSubmit)="onSubmit()">
+      <div class="item-group">
+        <label for="email">Email</label>
+        <input class="form-control"
+         type="email"
+         id="email"
+         formControlName="email">
+         <div *ngIf="form.get('email')?.errors && form.get('email')?.touched">
+          <span *ngIf="form.get('email')?.getError('required')" class="text-danger">
+            Email is rquired
+          </span>
+          <span *ngIf="form.get('email')?.getError('email')" class="text-danger">
+            Email is Not correct
+          </span>
+         </div>
+      </div>
+      <div class="item-group">
+        <label for="password">password</label>
+        <input
+         class="form-control"
+         type="password"
+         id="password"
+         formControlName="password" >
+         <div *ngIf="form.get('password')?.errors && form.get('password')?.touched" >
+           <span class="text-danger" *ngIf="form.get('password')?.getError('required')">
+            this password is required
+           </span>
+           <span class="text-danger" *ngIf="form.get('password')?.getError('minlength')">
+            Must be 6 char minimum
+           </span>
+           <span class="text-danger" *ngIf="form.get('password')?.getError('maxlength')">
+            Must be 10 characters maximum
+           </span>
+         </div>
+      </div>
+       <div class="my-2 d-flex justify-content-between">
+        <button type="submit"class="btn btn-primary"[disabled]="!form.valid">Login</button>
+        <button class="register-btn" type="button"> <a (click)="registerPage()">
+          Go To Register <span><img width="20" src="./assets/arrow-small-right.svg" alt="arrow-right"></span>
+        </a></button>
+       </div>
+
+     </form>
+
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+   <div class="text-center">
+     <img src="./assets/undraw_tasting_re_3k5a.svg" width="300" alt="Login photo" >
+   </div>
+  </div>
+</div>
+</section>

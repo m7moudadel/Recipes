@@ -1,0 +1,47 @@
+
+<div class="row">
+  <div class="col-xs-12">
+    <form  (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="row">
+      <div class="col-sm-5 form-group">
+        <label for="name">Name</label>
+        <input
+         type="text"
+         id="name"
+         class="form-control"
+         name="name"
+         ngModel
+         >
+      </div>
+      <div class="col-sm-2 form-group">
+        <label for="amount">amount</label>
+        <input
+        #recipeRef
+         type="number"
+          id="amount"
+          name="amount"
+          ngModel
+          required
+          pattern="^[1-9]+[0-9]*$"
+           class="form-control"
+          >
+
+      </div>
+      <div class="row ">
+        <div  class="col-xs-12 my-2">
+        <div>
+          <button class="btn btn-success me-1" [disabled]="!f.valid" type="submit">{{editeMode? 'update' : 'Add'}}</button>
+          <button
+           class="btn btn-primary ms-1"
+           *ngIf="editeMode"
+           (click)="deleteFrom()"
+           type="button">Delete</button>
+          <button class="btn btn-danger  ms-1" type="button" (click)="clearFrom()">Cealr</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    </form>
+
+  </div>
+</div>

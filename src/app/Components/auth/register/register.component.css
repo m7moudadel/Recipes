@@ -1,0 +1,11 @@
+.register-btn{
+  all: unset;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+
+.register-btn:hover{
+  color: royalblue !important;
+  border-bottom: 1px solid royalblue;
+
+}

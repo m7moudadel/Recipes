@@ -1,0 +1,31 @@
+<a
+
+class="list-group-item
+clearfix
+d-flex
+justify-content-around
+align-items-center p-2
+my-2
+"
+routerLinkActive="active"
+role="button"
+style="border: 2px solid rgba(128, 128, 128, 0.434); border-radius: 25px ;"
+>
+
+  <div class="col-xs-12 col-md-12 d-flex justify-content-center align-items-center">
+   <div>
+    <h4 >{{recipe.name}}</h4>
+    <p >{{recipe.describtion}}+Any Thing</p>
+   </div>
+    <div>
+      <img
+    [src]="recipe.imagePath"
+    [alt]="recipe.name"
+    width="80"
+     >
+    </div>
+    </div>
+
+
+</a>
+
